@@ -1,70 +1,138 @@
-# Getting Started with Create React App
+# 🔋 Voltz - Sistema de Telemetria para Moto Elétrica
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+![Dashboard Preview](/src/img/dashboard.png)
 
-## Available Scripts
+> **API + Dashboard em tempo real para monitoramento da moto elétrica Voltz**  
+> Solução completa para leitura, processamento e visualização de dados telemétricos via rede CAN.
 
-In the project directory, you can run:
+---
 
-### `npm start`
+## 🚀 Visão Geral
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+O **Voltz Telemetry** é um sistema full-stack que combina uma **API RESTful** com um **dashboard web interativo** para monitorar em tempo real os parâmetros críticos da moto elétrica da **Voltz**. O projeto foi desenvolvido para permitir o acompanhamento de desempenho, estado da bateria, localização e mensagens da rede CAN, sendo ideal para testes de campo, desenvolvimento de firmware, manutenção e análise de dados.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+---
 
-### `npm test`
+## 📦 Funcionalidades
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+✅ **Dashboard Web Interativo**
+- Velocidade atual (km/h)  
+- Nível de bateria (%) e SoC (State of Charge)  
+- Autonomia estimada (km)  
+- Temperatura da bateria (°C)  
+- Modo de condução (Eco, Normal, Sport)  
+- Potência instantânea (kW)  
+- Mapa de localização em tempo real (OpenStreetMap + Leaflet)  
+- Log de mensagens CAN (ID, dados brutos, timestamp)
 
-### `npm run build`
+✅ **API RESTful**
+- Endpoints para acesso estruturado aos dados do veículo  
+- Recebe e processa frames CAN (via WebSocket ou POST)  
+- Respostas em JSON padronizado  
+- Suporte a modo simulação (mock data)  
+- Segurança opcional com API Key
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+✅ **Integração com Rede CAN**
+- Leitura e decodificação de mensagens CAN 2.0B  
+- Mapeamento de IDs para sinais (ex: velocidade, voltagem, corrente)  
+- Conversão de dados brutos para valores físicos
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+---
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## 🛠️ Tecnologias Utilizadas
 
-### `npm run eject`
+| Camada      | Tecnologia                          |
+|-------------|-------------------------------------|
+| Frontend    | HTML, CSS, JavaScript               |
+| Backend     | Node.js + Mongo + Express           |
+| Comunicação | REST API + WebSocket                |
+| Mapas       | OpenStreetMap                       |
+| Deploy      | Kubernets (K3s)                     |
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+---
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## 📁 Estrutura do Projeto
+-- Em desenvolvimento
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+## 🔧 Como Baixar e Executar o Projeto
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+## 1 Instalar Git
 
-## Learn More
+Windows:
+Acesse o site oficial do [Git](https://git-scm.com)
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+Baixe o instalador para Windows.
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+Execute o instalador e siga as instruções na tela, mantendo as configurações padrão recomendadas.
 
-### Code Splitting
+macOS:
+Você pode instalar o Git usando o Homebrew.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+Terminal
+```
+brew install git
+```
+Linux:
+No Ubuntu ou distribuições baseadas em Debian:
 
-### Analyzing the Bundle Size
+Terminal
+```
+sudo apt-get update
+sudo apt-get install git
+```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+## 2. Instalar Node.jse npm
+Node.js é um ambiente de execução de JavaScript, e npm (Node Package Manager) é o gerenciador de pacotes padrão para Node.js, usado para instalar bibliotecas e ferramentas de desenvolvimento.
 
-### Making a Progressive Web App
+Windows e macOS:
+Acesse o site oficial do [Node.js](https://nodejs.org)
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+Baixe o instalador para o seu sistema operacional (recomendo a versão LTS).
 
-### Advanced Configuration
+Execute o instalador e siga as instruções na tela, mantendo as configurações padrão recomendadas.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+Linux:
+No Ubuntu ou distribuições baseadas em Debian:
 
-### Deployment
+Terminal
+```
+sudo apt-get update
+sudo apt-get install -y nodejs
+sudo apt-get install -y npm
+```
+Terminal
+```
+sudo dnf install nodejs
+sudo dnf install npm
+```
+## 3. Clonar o Repositório do Projeto
+Usando o Git, você pode clonar o repositório do seu projeto para obter uma cópia local.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+Terminal
+```
+git clone https://github.com/AlexsandroJ/apiVoltz.git
+```
+## 4. Navegar até o Diretório do Projeto
+Depois de clonar o repositório, navegue até o diretório do projeto.
 
-### `npm run build` fails to minify
+Terminal
+```
+cd apiVoltz
+```
+## 5. Instalar as Dependências do Projeto
+Use o npm para instalar todas as dependências listadas no arquivo package.json do projeto.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+Terminal
+```
+npm install
+```
+## 6. Executar o Projeto
+Uma vez que as dependências estejam instaladas, você pode Executar o projeto.
+
+Terminal
+```
+npm run dev
+```
+
+📌 A API é documentada com **Swagger (OpenAPI)**. Após iniciar o servidor, acesse:  
+👉 `http://localhost:3000/api-docs` em desenvolvimento
